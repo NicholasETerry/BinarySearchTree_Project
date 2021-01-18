@@ -25,6 +25,8 @@ namespace BinarySearchTree
             newSearch.Add(node5);
             newSearch.Add(node6);
             Console.WriteLine("All items added");
+            newSearch.Search(700);
+            newSearch.Search(3);
 
             Console.ReadLine();
         }

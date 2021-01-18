@@ -9,7 +9,7 @@ namespace BinarySearchTree
     class Node
     {
         // if value is less then Node, value is stored on the rightChildNode
-        // if value is greater then Node, value is tored on the LeftChildNode
+        // if value is greater then Node, value is stored on the LeftChildNode
         public int nodeValue;
         public Node rightChildNode;
         public Node leftChildNode;

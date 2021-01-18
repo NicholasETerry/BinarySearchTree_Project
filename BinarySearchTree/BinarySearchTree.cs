@@ -29,15 +29,13 @@ namespace BinarySearchTree
                 {
                     if (currentNode.rightChildNode == null)
                     {
-                        currentNode.rightChildNode = toAdd;
+                        currentNode.rightChildNode = new Node(toAdd.nodeValue);
                         break;
                     }
                     else
                     {
-                        currentNode = currentNode.rightChildNode; //= new Node(toAdd.nodeValue);
+                        currentNode = currentNode.rightChildNode; 
                     }
-
-                    break;
                 }
                 else if (toAdd.nodeValue < currentNode.nodeValue)
                 {
@@ -48,16 +46,58 @@ namespace BinarySearchTree
                     }
                     else
                     {
-                        currentNode = currentNode.leftChildNode; // = new Node(toAdd.nodeValue);
+                        currentNode = currentNode.leftChildNode;
                     }
-
-                    break;
                 }
             }
         }
         public void Search(int valueToSearch)
         {
+            Node currentNode = rootNode;
+            while (true)
+            {
+                if (valueToSearch == currentNode.nodeValue)
+                {
+                    ItemFound();
+                    break;
+                }
+                else if (valueToSearch > currentNode.nodeValue)
+                {
+                    if (currentNode.rightChildNode == null)
+                    {
+                        ItemNotFound();
+                        break;
+                    }
+                    else
+                    {
+                        currentNode = currentNode.rightChildNode;
+                    }
+                }
+                else if (valueToSearch < currentNode.nodeValue)
+                {
+                    if (currentNode.leftChildNode == null)
+                    {
+                        ItemNotFound();
+                        break;
+                    }
+                    else
+                    {
+                        currentNode = currentNode.leftChildNode;
+                    }
+                }
 
+            }
+
+        }
+        public void ItemFound()
+        {
+            Console.WriteLine("Item found");
+            Console.ReadLine();
+        }
+        public void ItemNotFound()
+        {
+            Console.WriteLine("The item is not in the Tree");
+            Console.ReadLine();
         }
     }
 }
